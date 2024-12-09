@@ -2,7 +2,6 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "../Pages/Home"
 import AddPost from "../components/AddPost"
-import Container from "./Container/Container";
 import LogoutBtn from "./Header/LogoutBtn";
 import LoginBtn from "./Header/LoginBtn";
 import PostCard from "./PostCard"
@@ -45,7 +44,6 @@ export {
     Footer,
     Home,
     AddPost,
-    Container,
     LogoutBtn,
     LoginBtn,
     PostCard,

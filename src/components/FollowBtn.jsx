@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import authService from '../appwrite/Auth'
 import { useNavigate } from 'react-router-dom';
 import appwriteService from '../appwrite/Config'
-import { follow, unfollow } from '.';
 
 const FollowBtn = ({ userId, slug }) => {
   const [isFollow, setIsFollow] = useState(false);

@@ -1,7 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from '../../store/AuthSlice';
-import authService from '../../appwrite/Auth';
 import {Link} from 'react-router-dom';
 
 const LoginBtn = () => {

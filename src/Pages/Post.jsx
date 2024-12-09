@@ -5,7 +5,6 @@ import parse from "html-react-parser";
 import LikeBtn from '../components/LikeBtn';
 import userImage from '../components/image/userImage.jpg';
 import FollowBtn from "../components/FollowBtn";
-// import { useSelector } from 'react-redux'
 import { check, no } from "../components";
 import authService from "../appwrite/Auth";
 
@@ -15,7 +14,6 @@ export default function Post() {
   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
   const navigate = useNavigate();
-  // const userData = useSelector(state => state.auth.userData);
   const [DeleteMsg, setDeleteMsg] = useState(false);
   const [NotDeleteMsg, setNotDeleteMsg] = useState(false);
   const [postPhoto, setPostPhoto] = useState("");
@@ -29,12 +27,10 @@ export default function Post() {
     getcurrentuser();
   }, [])
 
-  // console.log(post, "post");
   
   useEffect(() => {
     const ProfileP = async () => {
       const Avatar = await appwriteService.getAuthUser(post?.userId);
-      // console.log(Avatar);
       setPostPhoto(Avatar.ProfilePhoto);
       console.log(postPhoto);
     }

@@ -25,21 +25,12 @@ const SignUp = () => {
                 const userData = await authService.getCurrentUser(data);
                 if (userData) {
                     dispatch(authLogin(userData));
-
-                    const avatarUrl = authService.avatar({ Name: userData.name });
-                    // console.log(userData.name);
-                    console.log(avatarUrl);
-                    
-                    
+                    const avatarUrl = authService.avatar({ Name: userData.name });                    
                     const userDetail = await appwriteService.createUserDetails(userData.$id, userData.name);
-                    console.log(userDetail);
-
-                    const AuthUser = await appwriteService.createAuthUser(userData.$id, userData.name, avatarUrl);
-                    console.log(AuthUser);
-                    
+                    const AuthUser = await appwriteService.createAuthUser(userData.$id, userData.name, avatarUrl);                    
 
                     if (userDetail && AuthUser) {
-                        navigate("/login")
+                        navigate("/")
                         window.location.reload();
                     }
                 }
@@ -128,9 +119,6 @@ const SignUp = () => {
                     <div className="mt-2 text-center text-xs md:text-sm text-gray-600">
                         <span className="text-black hover:text-black dark:text-slate-200">If you already have a account <Link to='/login' className="text-blue-500 hover:text-blue-700">Login</Link></span>
                     </div>
-
-
-
                 </div>
             </div>
         </>

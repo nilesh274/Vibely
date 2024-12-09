@@ -34,14 +34,12 @@ const Profile = () => {
     }, [userData?.$id])
 
     useEffect(() => {
-        // console.log("User data in Profile:", userData);
         if (userData?.$id) {
             const getPost = async () => {
                 await appwriteService.getAllPosts().then((posts) => {
                     if (posts) {
                         setPosts(posts.documents);
                     }
-                    // console.log(posts);
                 });
             };
             getPost();
@@ -49,7 +47,6 @@ const Profile = () => {
     }, [userData?.$id]);
 
     useEffect(() => {
-        // console.log("User data in Profile for followers:", userData);
         if (userData?.$id) {
             const getUser = async () => {
                 const userDetail = await appwriteService.getUserDetails(userData?.$id);
@@ -72,7 +69,6 @@ const Profile = () => {
                 });
                 const followers = await Promise.all(followerDetailsPromises);
                 setFollowersDetails(followers);
-                // console.log(followersDetails);        
             }
             setIsVisible(!isVisible);
         }
@@ -86,7 +82,6 @@ const Profile = () => {
                     return await appwriteService.getAuthUser(followerId);
                 });
                 const follow = await Promise.all(followerDetailsPromises);
-                // console.log(follow, "follow");
                 setFollowingDetails(follow);
                 
             }

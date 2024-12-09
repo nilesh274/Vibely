@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { InputTxt, RTE } from '../components';
 import appwriteService from '../appwrite/Config';
 import { useNavigate } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 import { check, no } from '../components';
 import authService from '../appwrite/Auth';
 
@@ -20,7 +19,6 @@ export default function AddPost({ post }) {
 
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
-  // const userData = useSelector((state) => state.auth.userData)
 
 
   useEffect(() => {
@@ -31,29 +29,11 @@ export default function AddPost({ post }) {
     getcurrentuser();
   }, [])
 
-  // console.log(userData);
 
   const [postDone, setPostDone] = useState(false);
   const [postCreate, setPostCreate] = useState(false);
   const [postNotCreate, setPostNotCreate] = useState(false);
   const [Error, setError] = useState('');
-  // console.log(userData.$id);
-
-  // const onchange = (e) => {
-  //   e.preventDefault();
-  //   if (postDone) {
-  //     setPostCreate(true);
-  //     setTimeout(() => {
-  //       setPostCreate(false);
-  //     }, 2000)
-  //   } else {
-  //     setPostNotCreate(true);
-  //     setTimeout(() => {
-  //       setPostNotCreate(false);
-  //     }, 2000)
-  //   }
-  // }
-
 
 
   const submit = async (data) => {
@@ -61,8 +41,7 @@ export default function AddPost({ post }) {
       if (post) {
         const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
-        if (file && post.featuredImage) {
-          // console.log(post.featuredImage);          
+        if (file && post.featuredImage) {          
           appwriteService.deleteFile(post.featuredImage);
         }
 
@@ -71,7 +50,6 @@ export default function AddPost({ post }) {
           featuredImage: file ? file.$id : undefined,
         });
 
-        // console.log(file);
 
         if (dbPost) {
           setPostDone(true);
@@ -87,12 +65,10 @@ export default function AddPost({ post }) {
 
 
         if (file) {
-          // console.log(userData);
           const fileId = file.$id;
           data.featuredImage = fileId;
 
           const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id, userName: userData.name });
-          // console.log(dbPost);
 
 
           if (dbPost) {
@@ -107,7 +83,6 @@ export default function AddPost({ post }) {
     }
     catch (error) {
       setPostDone(false);
-      // console.log("error", error);
       if (error.message && error.message.includes("requested ID already exists")) {
         setError("Title is Exists please change the title");
       } else {

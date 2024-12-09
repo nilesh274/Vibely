@@ -10,14 +10,11 @@ const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
     const [userPost, setUserPost] = useState(false);
     const [postPhoto, setPostPhoto] = useState("");
     const userData = useSelector(state => state.auth.userData);
-    // console.log(userId);
 
     useEffect(() => {
         const ProfileP = async () => {
             const Avatar = await appwriteService.getAuthUser(userId);
-            // console.log(Avatar);
             setPostPhoto(Avatar.ProfilePhoto);
-            console.log(postPhoto);
         }
         ProfileP();
     }, [userId])
