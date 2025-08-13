@@ -23,7 +23,6 @@ const Login = () => {
             if (session) {
                 const userData = await authService.getCurrentUser();
                 if (userData) {
-                    // console.log("User data after login:", userData);
                     dispatch(authLogin(userData));
                     navigate("/"); 
                     window.location.reload();

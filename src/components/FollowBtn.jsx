@@ -52,7 +52,6 @@ const FollowBtn = ({ userId, slug }) => {
         const currentUserUpdateFollowing = newFollowing.filter(id => id !== userId);
         await appwriteService.updateUserDetails(currentUser.$id, {following: currentUserUpdateFollowing})
         setmessage(<div className='items-center text-center justify-center dark:text-black'>
-          {/* <img src={unfollow} className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20'/> */}
           <p className='text-sm sm:text-[12px] md:text-lg lg:text-xl'>Connection removed. You won't see updates from <span className='font-bold dark:text-black'>"{PostUser.UserName}"</span></p>
         </div>);
         setTimeout(() => {
@@ -67,7 +66,6 @@ const FollowBtn = ({ userId, slug }) => {
         const currentUserUpdateFollowing = [...newFollowing, userId];
         await appwriteService.updateUserDetails(currentUser.$id, { following: currentUserUpdateFollowing })
         setmessage(<div className='items-center text-center justify-center dark:text-black'>
-          {/* <img src={follow} className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20'/> */}
           <p className='text-sm sm:text-[12px] md:text-lg lg:text-xl'>"You've started following <span className='font-bold dark:text-black text-justify'>"{PostUser.UserName}"</span>! Explore their world."</p>
         </div>);
         setTimeout(() => {

@@ -3,7 +3,7 @@ import { Login as logincomponent } from '../components';
 
 const Login = () => {
     return(
-            <logincomponent/>
+        <logincomponent/>
     )
 }
 export default Login;

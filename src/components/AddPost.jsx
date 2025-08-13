@@ -109,7 +109,7 @@ export default function AddPost({ post }) {
     return "";
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === "title") {
         setValue("slug", slugTransform(value.title), { shouldValidate: true });
@@ -156,7 +156,6 @@ export default function AddPost({ post }) {
         <div className="w-full md:w-1/3 px-2">
           <div className="mb-4">
             <label className="block text-xs sm:text-sm md:text-md lg:text-lg font-medium text-gray-700 dark:text-slate-200">Featured Image:</label>
-            {/* <p className='block text-xs sm:text-sm md:text-md lg:text-lg font-medium text-gray-700 dark:text-slate-200'>Image size is less than 3MB</p> */}
             <input
               type="file"
               accept="image/png, image/jpg, image/jpeg, image/gif"
@@ -188,7 +187,6 @@ export default function AddPost({ post }) {
           <button
             type="submit"
             bgColor={post ? "bg-green-500" : undefined}
-            // onClick={onchange}
             className={`text-sm sm:text-md md:text-lg lg:text-xl w-full py-2 px-4 text-white rounded-md shadow-md transition duration-150 ease-in-out ${post ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"}`}
           >
             {post ? "Update Post" : "Submit Post"}

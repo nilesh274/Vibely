@@ -26,9 +26,7 @@ const Profile = () => {
     useEffect(() => {
         const ProfileP = async () => {
             const Avatar = await appwriteService.getAuthUser(userData?.$id);
-            // console.log(Avatar);
             setPhoto(Avatar.ProfilePhoto);
-            // console.log(photo);
         }
         ProfileP();
     }, [userData?.$id])

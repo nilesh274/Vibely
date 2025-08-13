@@ -3,7 +3,7 @@ import { SignUp as Signupcomponent } from '../components';
 
 const SignUp = () => {
     return(
-            <Signupcomponent/>
+        <Signupcomponent/>
     )
 }
 export default SignUp;

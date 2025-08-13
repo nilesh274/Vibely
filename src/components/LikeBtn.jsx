@@ -42,7 +42,6 @@ const LikeBtn = ({slug}) => {
       console.log("updatedlike :: error",error);
     }
     setIslike(!islike);
-    console.log(Post.like.length, Post.like);
   }
   
   

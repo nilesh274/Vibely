@@ -32,7 +32,6 @@ export default function Post() {
     const ProfileP = async () => {
       const Avatar = await appwriteService.getAuthUser(post?.userId);
       setPostPhoto(Avatar.ProfilePhoto);
-      console.log(postPhoto);
     }
     ProfileP();
   }, [post?.userId])

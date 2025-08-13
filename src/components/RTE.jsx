@@ -12,9 +12,9 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
       )}
 
       <Controller
-        name={name || "content"} // Default to "content" if no name is provided
+        name={name || "content"} 
         control={control}
-        render={({ field: { onChange, value } }) => ( // Also get value for initial value
+        render={({ field: { onChange, value } }) => ( 
           <Editor
             apiKey="8q0m49z96wk6agvu4gsq2rhb8fyeyft63mt3muzwvijbao5o" 
             initialValue={defaultValue}
@@ -45,7 +45,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
               content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:12px }",
             }}
             onEditorChange={onChange}
-            value={value || defaultValue} // Ensure value is synced with the form
+            value={value || defaultValue} 
           />
         )}
       />
